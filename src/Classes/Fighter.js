@@ -5,8 +5,8 @@ export default class Fighter extends CharacterClass {
         href: "https://www.dndbeyond.com/classes/fighter";
         source: "phb p.70"
         level: 0;
-        hitDie: "d10";
-        hitDieAvg: 6;
+        hit_die: "d10";
+        hit_die_avg: 6;
         
         apply(){
             this.Character.addProficiency("All armor");

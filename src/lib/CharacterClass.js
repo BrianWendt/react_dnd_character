@@ -4,8 +4,8 @@ export default class CharacterClass {
     level: 0;
     href: null;
     source: null;
-    hitDie: null;
-    hitDieAvg: null;
+    hit_die: null;
+    hit_die_avg: null;
     
     apply(){
         

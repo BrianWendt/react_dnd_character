@@ -1,5 +1,6 @@
 import Races from './Races';
 import Classes from './Classes';
+//import Ajv from "Ajv";
 
 export default class Character {
         _log = [];
@@ -9,7 +10,7 @@ export default class Character {
         speed = 30;
         xp = 0;
         
-        abilityScores = {
+        ability_scores = {
             str: 10,
             dex: 10,
             con: 10,
@@ -18,7 +19,7 @@ export default class Character {
             cha: 10
         }
         
-        savingThrows = {
+        saving_throws = {
             str: false,
             dex: false,
             con: false,
@@ -41,6 +42,7 @@ export default class Character {
             NewClass.Character = this;
             NewClass.level = level;
             this.classes.push(NewClass);
+            this.log("Added class " + NewClass.name);
             NewClass.apply();
         }
         
@@ -49,15 +51,15 @@ export default class Character {
         }
         
         addSavingThrow(name){
-            this.savingThrows[name] = true;
+            this.saving_throws[name] = true;
         }
         
         adjustAbilityScore(name, mod){
-            this.abilityScores[name] += mod;
+            this.ability_scores[name] += mod;
         }
         
         getAbilityScore(name){
-            return this.abilityScores[name];
+            return this.ability_scores[name];
         }
         
         getAbilityScoreMod(name){
@@ -74,11 +76,11 @@ export default class Character {
         }
         
         getAbilityScoreName(name){
-            return this.manifest.abilityScores[name].name;
+            return this.manifest.ability_scores[name].name;
         }
         
         getAbilityScoreNameCode(name){
-            return this.manifest.abilityScores[name].code;
+            return this.manifest.ability_scores[name].code;
         }
         
         getLevels(){
@@ -94,7 +96,7 @@ export default class Character {
         }
         
         manifest = {
-            abilityScores: {
+            ability_scores: {
                 str: {name: "Stength", code: "STR"},
                 dex: {name: "Dexterity", code: "DEX"},
                 con: {name: "Constitution", code: "CON"},
